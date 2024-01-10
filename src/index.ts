@@ -9,7 +9,7 @@ export async function createPassword({ message, mask = "*", validate }: Password
 
   handleCancelation(operation);
 
-  return operation;
+  return operation as string;
 }
 
 export async function createConfirm(param: ConfirmOptions) {
@@ -17,7 +17,7 @@ export async function createConfirm(param: ConfirmOptions) {
 
   handleCancelation(operation);
 
-  return operation;
+  return operation as boolean;
 }
 
 export async function createText(param: TextOptions) {
@@ -25,7 +25,7 @@ export async function createText(param: TextOptions) {
 
   handleCancelation(operation);
 
-  return operation;
+  return operation as string;
 }
 
 export async function createSelect<T = any>({
@@ -43,7 +43,7 @@ export async function createSelect<T = any>({
 
   handleCancelation(operation);
 
-  return operation;
+  return operation as T;
 }
 
 export async function createMultiselect<T = any>(param: {
@@ -57,7 +57,7 @@ export async function createMultiselect<T = any>(param: {
 
   handleCancelation(operation);
 
-  return operation;
+  return operation as T[];
 }
 
 export async function createSpinner(
