@@ -11,7 +11,7 @@ declare function createSelect<T = any>({ maxItems, message, options, initialValu
         hint?: string;
     }[];
     maxItems?: number;
-    initialValue?: any;
+    initialValue?: T;
 }): Promise<symbol | T>;
 declare function createMultiselect<T = any>(param: {
     message: string;
@@ -20,7 +20,7 @@ declare function createMultiselect<T = any>(param: {
         label: string;
         hint?: string;
     }[];
-    initialValues?: any[];
+    initialValues?: T[];
     required?: boolean;
     cursorAt?: any;
 }): Promise<symbol | T[]>;
