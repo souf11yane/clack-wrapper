@@ -37,7 +37,7 @@ export async function createSelect<T = any>({
   message: string;
   options: { value: T; label: string; hint?: string }[];
   maxItems?: number;
-  initialValue?: any;
+  initialValue?: T;
 }) {
   const operation = await select<any, T>({ maxItems: maxItems || Math.min(options.length, Math.max(options.length - 4, 8)), message, options, initialValue });
 
@@ -49,7 +49,7 @@ export async function createSelect<T = any>({
 export async function createMultiselect<T = any>(param: {
   message: string;
   options: { value: T; label: string; hint?: string }[];
-  initialValues?: any[];
+  initialValues?: T[];
   required?: boolean;
   cursorAt?: any;
 }) {
