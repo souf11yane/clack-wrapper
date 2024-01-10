@@ -1,0 +1,43 @@
+{
+  "name": "clack-wrapper",
+  "description": "this is a wrapper for @clack/prompts",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "start": "node dist/index.js",
+    "dev": "npm run build; concurrently \"npx tsc -w\" \"npm run start\"",
+    "lint": "tsc"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@types/bun": "latest",
+    "@types/node": "^20.10.8",
+    "concurrently": "^8.2.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0"
+  },
+  "author": "souf11yane",
+  "license": "MIT",
+  "homepage": "https://github.com/souf11yane/clack-wrapper#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souf11yane/clack-wrapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/souf11yane/clack-wrapper/issues"
+  },
+  "keywords": [
+    "clack",
+    "wrapper",
+    "clack-wrapper"
+  ]
+}
