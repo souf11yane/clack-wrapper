@@ -65,7 +65,7 @@ export async function createSpinner(cb: (stop: (endLabel?: string) => void) => v
 
   s.start(startLabel ?? "");
 
-  new Promise((res) => {
+  await new Promise((res) => {
     cb(res);
   })
     .then((result: any) => {
