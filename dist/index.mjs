@@ -34,16 +34,18 @@ async function createMultiselect(param) {
   handleCancelation(operation);
   return operation;
 }
-async function createSpinner(cb, options = {
-  startLabel: "",
-  endLabel: ""
-}) {
+async function createSpinner(cb, startLabel) {
   const s = spinner();
-  s.start(options?.startLabel ?? "");
-  await new Promise((res, rej) => {
-    cb(res, rej);
+  s.start(startLabel ?? "");
+  new Promise((res) => {
+    cb(res);
+  }).then((result) => {
+    s.stop(result);
+  }).catch((reason) => {
+    s.stop(reason);
+    console.error(`Error: there was an error in the spinner callback.
+${reason}`);
   });
-  s.stop(options?.endLabel ?? "");
 }
 function handleCancelation(operation) {
   if (isCancel(operation)) {

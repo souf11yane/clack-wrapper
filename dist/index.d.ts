@@ -24,9 +24,6 @@ declare function createMultiselect<T = any>(param: {
     required?: boolean;
     cursorAt?: any;
 }): Promise<T[]>;
-declare function createSpinner(cb: (resolve: (value: any) => void, reject: (reason?: any) => void) => void, options?: {
-    startLabel?: string;
-    endLabel?: string;
-}): Promise<void>;
+declare function createSpinner(cb: (stop: (endLabel?: string) => void) => void, startLabel?: string): Promise<void>;
 
 export { createConfirm, createMultiselect, createPassword, createSelect, createSpinner, createText };

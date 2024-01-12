@@ -60,22 +60,21 @@ export async function createMultiselect<T = any>(param: {
   return operation as T[];
 }
 
-export async function createSpinner(
-  cb: (resolve: (value: any) => void, reject: (reason?: any) => void) => void,
-  options: { startLabel?: string; endLabel?: string } = {
-    startLabel: "",
-    endLabel: "",
-  }
-) {
+export async function createSpinner(cb: (stop: (endLabel?: string) => void) => void, startLabel?: string) {
   const s = spinner();
 
-  s.start(options?.startLabel ?? "");
+  s.start(startLabel ?? "");
 
-  await new Promise((res, rej) => {
-    cb(res, rej);
-  });
-
-  s.stop(options?.endLabel ?? "");
+  new Promise((res) => {
+    cb(res);
+  })
+    .then((result: any) => {
+      s.stop(result);
+    })
+    .catch((reason) => {
+      s.stop(reason);
+      console.error(`Error: there was an error in the spinner callback.\n${reason}`);
+    });
 }
 
 function handleCancelation(operation: any) {
