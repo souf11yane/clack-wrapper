@@ -1,7 +1,7 @@
 {
   "name": "clack-wrapper",
   "description": "this is a wrapper for @clack/prompts",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -12,7 +12,8 @@
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "start": "node dist/index.js",
     "dev": "npm run build; concurrently \"npx tsc -w\" \"npm run start\"",
-    "lint": "tsc"
+    "lint": "tsc -p ./tsconfig.json",
+    "updateVersion": "bun run build; bun changeset add; bun changeset version"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
