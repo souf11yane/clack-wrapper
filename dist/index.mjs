@@ -37,7 +37,7 @@ async function createMultiselect(param) {
 async function createSpinner(cb, startLabel) {
   const s = spinner();
   s.start(startLabel ?? "");
-  new Promise((res) => {
+  await new Promise((res) => {
     cb(res);
   }).then((result) => {
     s.stop(result);

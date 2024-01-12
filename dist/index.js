@@ -66,7 +66,7 @@ async function createMultiselect(param) {
 async function createSpinner(cb, startLabel) {
   const s = (0, import_prompts.spinner)();
   s.start(startLabel ?? "");
-  new Promise((res) => {
+  await new Promise((res) => {
     cb(res);
   }).then((result) => {
     s.stop(result);
