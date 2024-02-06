@@ -28,7 +28,7 @@ export async function createText(param: TextOptions) {
   return operation as string;
 }
 
-export async function createSelect<T = any>({
+export async function createSelect<const T>({
   maxItems,
   message,
   options,
@@ -46,7 +46,7 @@ export async function createSelect<T = any>({
   return operation as T;
 }
 
-export async function createMultiselect<T = any>(param: {
+export async function createMultiselect<const T>(param: {
   message: string;
   options: { value: T; label: string; hint?: string }[];
   initialValues?: T[];

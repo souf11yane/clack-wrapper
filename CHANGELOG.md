@@ -1,5 +1,11 @@
 # clack-wrapper
 
+## 0.1.6
+
+### Patch Changes
+
+- fix type generic in Select and MultiSelect
+
 ## 0.1.5
 
 ### Patch Changes

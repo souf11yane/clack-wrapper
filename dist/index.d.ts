@@ -3,7 +3,7 @@ import { PasswordOptions, ConfirmOptions, TextOptions } from '@clack/prompts';
 declare function createPassword({ message, mask, validate }: PasswordOptions): Promise<string>;
 declare function createConfirm(param: ConfirmOptions): Promise<boolean>;
 declare function createText(param: TextOptions): Promise<string>;
-declare function createSelect<T = any>({ maxItems, message, options, initialValue, }: {
+declare function createSelect<const T>({ maxItems, message, options, initialValue, }: {
     message: string;
     options: {
         value: T;
@@ -13,7 +13,7 @@ declare function createSelect<T = any>({ maxItems, message, options, initialValu
     maxItems?: number;
     initialValue?: T;
 }): Promise<T>;
-declare function createMultiselect<T = any>(param: {
+declare function createMultiselect<const T>(param: {
     message: string;
     options: {
         value: T;
